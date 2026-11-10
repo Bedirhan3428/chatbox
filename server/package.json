@@ -1,0 +1,13 @@
+{
+  "name": "chatbox-signaling",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node --max-old-space-size=256 index.js"
+  },
+  "dependencies": {
+    "ws": "^8.22.2"
+  }
+}

@@ -5,21 +5,60 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0B0D10",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false,
+      "bundleIdentifier": "com.chatbox.voice",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Sesli aramalarda konuşabilmeniz için mikrofon erişimi gerekir.",
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      },
+      "bitcode": false
     },
     "android": {
+      "package": "com.chatbox.voice",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0B0D10",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.INTERNET",
+        "android.permission.ACCESS_NETWORK_STATE",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS",
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.WAKE_LOCK"
+      ],
+      "blockedPermissions": [
+        "android.permission.CAMERA",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
+    "plugins": [
+      "expo-dev-client",
+      [
+        "@config-plugins/react-native-webrtc",
+        {
+          "microphonePermission": "Sesli aramalarda konuşabilmeniz için mikrofon erişimi gerekir.",
+          "cameraPermission": "Bu uygulama kamerayı kullanmaz."
+        }
+      ],
+      "expo-font"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "6374083a-e9ff-457e-9bcc-277832e3c6c0"
+      }
+    },
+    "owner": "bedirhanximr"
   }
 }

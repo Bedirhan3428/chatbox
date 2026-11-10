@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: chatbox-signaling
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: MAX_ROOM_SIZE
+        value: "4"
